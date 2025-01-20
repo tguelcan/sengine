@@ -1,6 +1,10 @@
 import type { RequestHandler } from './$types';
 import { type CoreMessage, streamText } from 'ai';
 
+export const config = {
+	runtime: 'edge',
+};
+
 import { Search, Suggestions, model, streamResponse } from './tools';
 import limiter from '$server/limiter';
 

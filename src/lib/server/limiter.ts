@@ -1,3 +1,6 @@
+export const config = {
+	runtime: 'edge',
+};
 
 const credits = 10;
 
