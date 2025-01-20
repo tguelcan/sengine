@@ -35,12 +35,12 @@
 	};
 
 	isLoading.subscribe((e) => {
+		// Scroll down if loading state changes
+		if (browser) scrollChatBottom('smooth');
 		if(e) {
 			// Update remaning credits
 			invalidateAll()
 		}
-		// Scroll down if loading ends
-		if (!e && browser) scrollChatBottom('smooth');
 	});
 
 </script>
