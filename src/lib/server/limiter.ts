@@ -7,12 +7,15 @@ const memStorage: {
 
 const store = {
 	add: ({ getClientAddress }) => {
+		const ip = getClientAddress();
+		console.log(ip)
 		memStorage.push({
 			ip: getClientAddress(),
 		});
 	},
 	status: ({ getClientAddress }) => {
 		const usersIp = getClientAddress()
+		console.log(usersIp)
 		const count = memStorage.filter(user => user.ip === usersIp);
 
 		const usersCredits = credits - count.length
