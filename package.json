@@ -3,6 +3,25 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tguelcan/sengine"
+	},
+	"description": "This is an AI-powered search application built with Svelte and the Vercel AI SDK, providing an efficient and customizable search experience. It uses Tavily, a powerful tool built for integrating Vercel AI SDK functionality, and is configured to work with Claude as the default AI model. The application is flexible and can also support other AI models with minimal adjustments.",
+	"keywords": [
+		"ai",
+		"vercel",
+		"svelte",
+		"sveltekit",
+		"tailwindcss",
+		"aisdk"
+	],
+	"author": "Tayfun Gülcan",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/tguelcan/sengine/issues"
+	},
+	"homepage": "https://sengine-tau.vercel.app",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
