@@ -1,17 +1,31 @@
-import { ANTHROPIC_API_KEY, TVLY_API_KEY as apiKey } from '$env/static/private';
+import { ANTHROPIC_API_KEY, DEEPSEEK_API_KEY, TVLY_API_KEY as apiKey } from '$env/static/private';
 import z from 'zod'
 import { generateObject, simulateReadableStream } from 'ai';
 import { tavily } from '@tavily/core';
-import { createAnthropic } from '@ai-sdk/anthropic';
+import { createDeepSeek } from '@ai-sdk/deepseek';
+
 import { searchSchema, suggestionsSchema } from './schema';
 
 
 const tvly = tavily({ apiKey });
-const anthropic = createAnthropic({
-	apiKey: ANTHROPIC_API_KEY
+
+/**
+ * -- If you want to your claude
+ *
+ * import { createAnthropic } from '@ai-sdk/anthropic';
+ * const anthropic = createAnthropic({
+ * 	apiKey: ANTHROPIC_API_KEY  ?? ''
+ * });
+ * export const model =  anthropic('claude-3-haiku-20240307');
+ *
+*/
+
+const deepseek = createDeepSeek({
+	apiKey: DEEPSEEK_API_KEY ?? '',
 });
 
-export const model =  anthropic('claude-3-haiku-20240307');
+export const model =  deepseek('deepseek-chat');
+
 // Search Tool
 export const Search = {
 		description: 'Search the web for information',

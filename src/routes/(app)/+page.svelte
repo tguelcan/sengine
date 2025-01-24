@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { useChat } from '@ai-sdk/svelte';
 	import { browser } from '$app/environment';
-	import {invalidateAll} from '$app/navigation';
-	import type { PageData } from './$types'
+	import { invalidateAll } from '$app/navigation';
+	import type { PageData } from './$types';
 	// Components
 	import Composer from '$components/Composer.svelte';
 	import Suggestions from '$components/Suggestions.svelte';
@@ -27,19 +27,22 @@
 
 	const { input, handleSubmit, messages, isLoading } = useChat();
 
-	export let data: PageData
+	export let data: PageData;
 
 	let elemChat: HTMLElement;
 	const scrollChatBottom = (behavior?: ScrollBehavior): void => {
 		window?.scrollTo({ top: elemChat?.scrollHeight, behavior });
 	};
 
+	// Scroll down on new message
+	messages.subscribe(_e => {
+		browser && scrollChatBottom('smooth');
+	});
+
+	// Update remaning credits
 	isLoading.subscribe((e) => {
-		// Scroll down if loading state changes
-		if (browser) scrollChatBottom('smooth');
-		if(e) {
-			// Update remaning credits
-			invalidateAll()
+		if (e) {
+			invalidateAll();
 		}
 	});
 

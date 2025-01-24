@@ -1,26 +1,22 @@
-export const config = {
-	runtime: 'edge',
-};
+import Redis from "ioredis"
+import { KV_URL } from '$env/static/private';
 
-const credits = 10;
-
-const memStorage: {
-	ip: string;
-}[] = [];
+const redis = new Redis(KV_URL)
+const initialCredits: number = 10
 
 const store = {
-	add: ({ getClientAddress }) => {
+	// Subtract one credit
+	subtract: async ({ getClientAddress }) => {
 		const ip = getClientAddress();
-		memStorage.push({
-			ip
-		});
+		let count = await redis.get(ip) || initialCredits;
+		count = Number(count)-1;
+		await redis.set(ip, count);
 	},
-	status: ({ getClientAddress }) => {
+	// Ask status
+	status: async ({ getClientAddress }) => {
 		const ip = getClientAddress()
-		const count = memStorage.filter(user => user.ip === ip);
-
-		const usersCredits = credits - count.length
-
+		const count = await redis.get(ip);
+		const usersCredits = Number(count) || 0
 		// Prevent negative numbers
 		return usersCredits <= 0 ? 0 : usersCredits
 	}

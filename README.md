@@ -23,7 +23,8 @@ This project delivers a fast, intelligent, and modern AI search solution that ca
 4. **[DaisyUI](https://daisyui.com):** CSS component library for Tailwind CSS
 ### **AI Models**
 
-- **Claude**: The default AI model used for the search functionality.
+- **Deepseek**: The default AI model used for the search functionality.
+- **Claude**: Another example model which is included
 - **Extensible with Other Models**: The AI integration is not limited to Claude; other models can be configured as per the requirements.
 
 ---
@@ -44,6 +45,7 @@ Before setting up the project, ensure the following requirements are met:
 1. **Node.js** is installed on your system. (Recommended: Latest LTS version)
 2. A [Vercel account](https://vercel.com/) is ready for deployment. You can also use another deploment methods.
 3. An **API key** for accessing the **Tavily AI SDK** and a API Key for your AI Model.
+4. If you want to work with credits, set up a redis database
 
 ---
 
@@ -71,6 +73,15 @@ Duplicate the `.env.example` file and rename it to `.env`. Then configure your e
 ```bash
 # Required API Key for Tavily
 TVLY_API_KEY=<your-tavily-api-key>
+
+# REDIS_URL is required for credit use if desired.
+KV_URL=<your-redis-db-url>
+
+# - AI MODELS
+ANTHROPIC_API_KEY=<your-anthropic-key>
+# OR
+DEEPSEEK_API_KEY=<your-deepseek-key>
+# OR other like openai...
 ```
 
 Make sure to replace `<your-tavily-api-key>` with your actual Tavily API key. Additional variables, if needed, are listed in the `.env.example` file.
