@@ -65,7 +65,7 @@
 					{#if toolName === 'Search'}
 						<Search toolState={state} {result} {args} />
 					{/if}
-					{#if toolName === 'Suggestions'}
+					{#if toolName === 'Suggestions' && result}
 						<div class="collapse bg-neutral mb-4">
 							<input type="checkbox" checked="{!!result?.length}" />
 							<div class="collapse-title text-xl font-medium">Possible follow-up questions</div>
