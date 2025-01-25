@@ -19,7 +19,7 @@ This project delivers a fast, intelligent, and modern AI search solution that ca
 
 1. **[Svelte](https://svelte.dev/):** A highly reactive and lightweight JavaScript framework, enabling faster development and reactivity.
 2. **[Vercel AI SDK](https://vercel.com):** Used to integrate AI-based functionalities seamlessly into the application.
-3. **[Tavily](https://www.npmjs.com/package/@tavily/core):** A utility library to simplify the integration and management of Vercel AI SDK functionalities.
+3. **[Tavily](https://www.npmjs.com/package/@tavily/core):** Search engine api.
 4. **[DaisyUI](https://daisyui.com):** CSS component library for Tailwind CSS
 ### **AI Models**
 
