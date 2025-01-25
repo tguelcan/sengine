@@ -37,7 +37,6 @@ Pay attention to language or other user intent to get the best results. Always a
 		}
 	});
 
-	console.log(result);
 	return result.toDataStreamResponse();
 
 }) satisfies RequestHandler;
